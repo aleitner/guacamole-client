@@ -1,0 +1,16 @@
+{
+    "name"  : "http",
+    "connectionForms" : [
+
+        {
+            "name"  : "authentication",
+            "fields" : [
+                {
+                    "name"  : "url",
+                    "type"  : "TEXT"
+                }
+            ]
+        }
+
+    ]
+}

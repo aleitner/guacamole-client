@@ -481,6 +481,17 @@
 
     },
 
+    "PROTOCOL_HTTP" : {
+
+        "FIELD_HEADER_URL"          : "URL:",
+
+        "NAME" : "HTTP",
+
+        "SECTION_HEADER_AUTHENTICATION"     : "Authentication",
+        "SECTION_HEADER_DISPLAY"            : "Display"
+
+    },
+
     "PROTOCOL_KUBERNETES" : {
 
         "FIELD_HEADER_BACKSPACE"       : "Backspace key sends:",
