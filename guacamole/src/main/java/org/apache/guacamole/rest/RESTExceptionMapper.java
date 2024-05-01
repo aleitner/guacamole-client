@@ -19,6 +19,7 @@
 
 package org.apache.guacamole.rest;
 
+import com.mysql.jdbc.MysqlDataTruncation;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.WebApplicationException;
@@ -97,6 +98,16 @@ public class RESTExceptionMapper implements ExceptionMapper<Throwable> {
                     .build();
         }
         
+        // Handle MysqlDataTruncation exceptions by inspecting the Throwable's cause
+        if (t != null && t.getCause() instanceof MysqlDataTruncation) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity(new APIError(new GuacamoleClientException(
+                            "Input data exceeds maximum length allowed.")))
+                    .type(MediaType.APPLICATION_JSON)
+                    .build();
+        }
+
         // Wrap unchecked exceptions
         String message = t.getMessage();
         if (message != null)
