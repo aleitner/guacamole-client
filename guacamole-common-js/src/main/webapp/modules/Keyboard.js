@@ -411,7 +411,11 @@ Guacamole.Keyboard = function Keyboard(element) {
         18:  [0xFFE9, 0xFFE9, 0xFFEA], // alt
         19:  [0xFF13], // pause/break
         20:  [0xFFE5], // caps lock
+        21:  [0xFF2D], // KanaMode
+        25:  [0xFF2A], // Zenkaku_Hankaku (alternate)
         27:  [0xFF1B], // escape
+        28:  [0xFF23], // Henkan (Convert)
+        29:  [0xFF22],  // Muhenkan (NonConvert)
         32:  [0x0020], // space
         33:  [0xFF55, 0xFF55, 0xFF55, 0xFFB9], // page up     / KP 9
         34:  [0xFF56, 0xFF56, 0xFF56, 0xFFB3], // page down   / KP 3
@@ -455,7 +459,10 @@ Guacamole.Keyboard = function Keyboard(element) {
         123: [0xFFC9], // f12
         144: [0xFF7F], // num lock
         145: [0xFF14], // scroll lock
-        225: [0xFE03]  // altgraph (iso_level3_shift)
+        225: [0xFE03],  // altgraph (iso_level3_shift)
+        240: [0xFF2A], // Zenkaku_Hankaku (some browsers)
+        243: [0xFF2A], // Zenkaku_Hankaku (Hankaku mode)
+        244: [0xFF2A]  // Zenkaku_Hankaku (Zenkaku mode)
     };
 
     /**
@@ -596,7 +603,18 @@ Guacamole.Keyboard = function Keyboard(element) {
         0xFFE9: true, // Left alt
         0xFFEA: true, // Right alt
         0xFFEB: true, // Left super/hyper
-        0xFFEC: true  // Right super/hyper
+        0xFFEC: true,  // Right super/hyper
+        0xFF21: true,  // Kanji
+        0xFF22: true,  // Muhenkan
+        0xFF23: true,  // Henkan
+        0xFF24: true,  // Romaji
+        0xFF25: true,  // Hiragana
+        0xFF26: true,  // Katakana
+        0xFF28: true,  // Zenkaku
+        0xFF29: true,  // Hankaku
+        0xFF2A: true,  // Zenkaku_Hankaku
+        0xFF2D: true,  // Kana_Lock
+        0xFF30: true   // Eisu_toggle
     };
 
     /**
